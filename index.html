@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Quiz App</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app" data-theme="light">
+
+    <!-- ================= HEADER ================= -->
+    <header class="app-header">
+      <div class="header-brand" id="headerBrand">
+        <span class="header-icon" id="headerIcon" aria-hidden="true"></span>
+        <h1 class="header-title" id="headerTitle">Frontend Quiz</h1>
+      </div>
+
+      <div class="theme-toggle" role="group" aria-label="Toggle light and dark theme">
+        <iconify-icon icon="mdi:weather-sunny" class="theme-icon" aria-hidden="true"></iconify-icon>
+        <button
+          type="button"
+          id="themeSwitch"
+          class="theme-switch"
+          role="switch"
+          aria-checked="false"
+          aria-label="Toggle dark mode"
+        >
+          <span class="theme-switch-thumb"></span>
+        </button>
+        <iconify-icon icon="mdi:weather-night" class="theme-icon" aria-hidden="true"></iconify-icon>
+      </div>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main class="app-main">
+
+      <!-- ---------- HOME SCREEN ---------- -->
+      <section class="screen home-screen active" id="homeScreen" aria-labelledby="homeHeading">
+        <div class="home-text">
+          <h2 id="homeHeading">
+            Welcome to the<br />
+            <strong>Frontend Quiz!</strong>
+          </h2>
+          <p class="home-subtitle">Pick a subject to get started.</p>
+        </div>
+
+        <div class="subject-list" id="subjectList" role="list">
+          <!-- Subject buttons are injected by JavaScript -->
+        </div>
+      </section>
+
+      <!-- ---------- QUIZ SCREEN ---------- -->
+      <section class="screen quiz-screen" id="quizScreen" aria-labelledby="questionTitle" hidden>
+        <p class="question-count" id="questionCount">Question 1 of 10</p>
+        <h2 class="question-title" id="questionTitle">Question text goes here</h2>
+
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+
+        <div class="answers-panel">
+          <ul class="answers-list" id="answersList" role="list">
+            <!-- Answer options injected by JavaScript -->
+          </ul>
+
+          <button type="button" class="submit-btn" id="submitBtn" disabled>
+            Submit Answer
+          </button>
+
+          <div class="error-message" id="errorMessage" role="alert" hidden>
+            <iconify-icon icon="mdi:alert-circle" aria-hidden="true"></iconify-icon>
+            <span>Please select an answer</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- RESULT SCREEN ---------- -->
+      <section class="screen result-screen" id="resultScreen" aria-labelledby="resultHeading" hidden>
+        <h2 id="resultHeading">
+          Quiz completed<br />
+          <strong>You scored...</strong>
+        </h2>
+
+        <div class="score-card">
+          <div class="score-card-subject">
+            <span class="score-card-icon" id="resultIcon" aria-hidden="true"></span>
+            <span id="resultSubject">Subject</span>
+          </div>
+          <p class="score-value" id="scoreValue">0</p>
+          <p class="score-max" id="scoreMax">out of 10</p>
+        </div>
+
+        <button type="button" class="play-again-btn" id="playAgainBtn">
+          Play Again
+        </button>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
